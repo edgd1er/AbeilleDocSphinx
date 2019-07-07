@@ -1,0 +1,13 @@
+version: '3.0'
+services:
+  sphinxdoc:
+    image: ddidier/sphinx-doc
+    #image: flocode/sphinxdocker
+    container_name: sphinxdoc
+    volumes:
+      - ./:/doc/
+      - ./docs/:/doc/build/html
+    environment:
+      USER_ID: 0
+      ENTRYPOINT_DEBUG: 1
+    command: "make html"
