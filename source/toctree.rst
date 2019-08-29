@@ -24,6 +24,7 @@ Table des matieres complete
    InstallationFirmware
    Installation
    Legrand
+   Konke
    listeCompatibilite
    Livolo
    ModeleJson
@@ -36,6 +37,7 @@ Table des matieres complete
    Radio
    Remplacement
    Scenes
+   Suppression
    Systeme
    Timer
    Tuto

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Heiman &#8212; Documentation Abeille 27.04.2019</title>
+    <title>Suppression &#8212; Documentation Abeille 27.04.2019</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -35,38 +35,41 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="heiman">
-<h1>Heiman<a class="headerlink" href="#heiman" title="Lien permanent vers ce titre">¶</a></h1>
-<div class="section" id="detecteur-de-fumee">
-<h2>Detecteur de fumée<a class="headerlink" href="#detecteur-de-fumee" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="inclusion">
-<h3>Inclusion<a class="headerlink" href="#inclusion" title="Lien permanent vers ce titre">¶</a></h3>
-<p>ZiGate en mode Inclusion
-Trombone dans petit trou sur le côté pendant 4s, le device fait un Beacon, flash en vert en face avant, s’appaire et est créé dans Abeille.</p>
-<img alt="_images/Capture_d_ecran_2019_07_06_a_11_40_01.png" src="_images/Capture_d_ecran_2019_07_06_a_11_40_01.png" />
-</div>
-<div class="section" id="exclusion">
-<h3>Exclusion<a class="headerlink" href="#exclusion" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Trombone dans petit trou sur le côté pendant 8s, le device fait un Leave. Bouton face avant flash plusieurs fois en vert.</p>
-<div class="section" id="dans-le-reseau">
-<h4>Dans le réseau<a class="headerlink" href="#dans-le-reseau" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Le bouton en face avant flash une fois de temps en temps en rouge environ toutes les 45 secondes.</p>
-</div>
-<div class="section" id="batterie">
-<h4>Batterie<a class="headerlink" href="#batterie" title="Lien permanent vers ce titre">¶</a></h4>
-<p>L’équipement remonte le niveau de sa batterie. Abeille le traite et l’affiche.</p>
-</div>
-<div class="section" id="alarme">
-<h4>Alarme<a class="headerlink" href="#alarme" title="Lien permanent vers ce titre">¶</a></h4>
-<p>L’information brute remonte dans Abeille. Par défaut sans alarme la valeur est à 20. Avec alarme l’information est à 21.</p>
-<p>Un appui sur le bouton de la face avant provoque une alarme (un message remonte) et lors de la relache un autre message est envoyé pour indiquer fin d’alarme.</p>
-<p>Vous pouvez décoder les informations remontant sur la base de :</p>
-<img alt="_images/Capture_d_ecran_2019_07_09_a_15_51_27.png" src="_images/Capture_d_ecran_2019_07_09_a_15_51_27.png" />
+  <div class="section" id="suppression">
+<h1>Suppression<a class="headerlink" href="#suppression" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Pour la suppression d’un équipement il faut comprendre qu’il y a deux niveaux:
+- ZigBee
+- Abeille/Jeedom</p>
+<p>Lors de l’inclusion l’équipement a été inclu dans le réseau zigbee par la zigate puis une répresentation a été ajouté dans Abeille/Jeedom.
+Les deux sont indépendants.</p>
+<div class="section" id="suppression-du-reseau-zigbee">
+<h2>Suppression du réseau ZigBee<a class="headerlink" href="#suppression-du-reseau-zigbee" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si vous ne voulez plus utiliser un équipement vous pouvez le sortir du réseau ZigBee en utilisant une commande spécifique de la ruche.</p>
+<ul class="simple">
+<li>Ouvrez la ruche</li>
+<li>rendez la visible</li>
+<li>allez sur le dashboard pour voir la ruche</li>
+<li>trouvez la commande Remove</li>
+</ul>
+<img alt="_images/Capture_d_ecran_2019_08_19_a_13_59_59.png" src="_images/Capture_d_ecran_2019_08_19_a_13_59_59.png" />
+<p>Renseignez l’adresse IEEE est faite «&nbsp;Remove&nbsp;».</p>
+<p>L’équipement doit répondre en indiquant qu’il a quitté le réseau zigbee. En consequence, l’equipement  sera desactivé dans Abeille.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Pour tester, prendre un briquet, l’allumer et le placer sous le capteur. Le capteur active son alarme, attention aux oreilles, et le champ passe à 21 dans Abeille.</p>
+<p class="last">Pour obtenir l’adresse IEEE d’un équipement, ouvrez la page commande de celui ci et faites «&nbsp;tester&nbsp;» sur la commande IEEE.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pour les équipements sur pile, il est necessaire de le réveiller avant de lui envoyer le «&nbsp;remove&nbsp;».</p>
 </div>
 </div>
+<div class="section" id="suppression-d-abeille-jeedom">
+<h2>Suppression d’Abeille/Jeedom<a class="headerlink" href="#suppression-d-abeille-jeedom" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Suite à la suppression du réseau zigbee, l’équipement doit apparaitre desactivé. Vous pouvez le supprimer avec le bouton rouge «&nbsp;Supprimer&nbsp;» dans Jeedom.</p>
+<img alt="_images/Capture_d_ecran_2019_08_19_a_14_06_49.png" src="_images/Capture_d_ecran_2019_08_19_a_14_06_49.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Vous pouvez garder l’équipement dans Abeille/Jeedom si vous le souhaitez. Si vous le re-incluez dans le reseau zigbee, il sera de nouveau pilotable sans n’avoir rien perdu.</p>
 </div>
 </div>
 </div>
@@ -79,17 +82,9 @@ Trombone dans petit trou sur le côté pendant 4s, le device fait un Beacon, fla
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Heiman</a><ul>
-<li><a class="reference internal" href="#detecteur-de-fumee">Detecteur de fumée</a><ul>
-<li><a class="reference internal" href="#inclusion">Inclusion</a></li>
-<li><a class="reference internal" href="#exclusion">Exclusion</a><ul>
-<li><a class="reference internal" href="#dans-le-reseau">Dans le réseau</a></li>
-<li><a class="reference internal" href="#batterie">Batterie</a></li>
-<li><a class="reference internal" href="#alarme">Alarme</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Suppression</a><ul>
+<li><a class="reference internal" href="#suppression-du-reseau-zigbee">Suppression du réseau ZigBee</a></li>
+<li><a class="reference internal" href="#suppression-d-abeille-jeedom">Suppression d’Abeille/Jeedom</a></li>
 </ul>
 </li>
 </ul>
@@ -97,7 +92,7 @@ Trombone dans petit trou sur le côté pendant 4s, le device fait un Beacon, fla
   <div role="note" aria-label="source link">
     <h3>Cette page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/Heiman.rst.txt"
+      <li><a href="_sources/Suppression.rst.txt"
             rel="nofollow">Montrer le code source</a></li>
     </ul>
    </div>
